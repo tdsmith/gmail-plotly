@@ -4,7 +4,7 @@ A stupid gadget to plot the number of messages in your gmail inbox to plot.ly.
 
 ## Setup instructions
 
-1. `git clone https://github.com/tdsmith/gmail-plotly`
+1. `git clone https://github.com/tdsmith/gmail-plotly.git`
 1. `mkdir -p ~/.config/gmail-plotly` (or change `CONFIG_DIR`)
 1. Set up a project in the [Google Developer's Console](https://console.developers.google.com//start/api?id=gmail&credential=client_key).
 1. In the APIs & auth section on the left, choose APIs, and switch on the Gmail
@@ -23,9 +23,12 @@ A stupid gadget to plot the number of messages in your gmail inbox to plot.ly.
 1. Set up your Google credentials by running `./gmail-plotly.py --noauth_local_webserver` and following the directions. This will also add the first data point to your plot.ly graph. The URL will be printed at the end.
 1. Add gmail-plotly to your crontab by having it run `run-external.sh`, which
    takes care of setting up the virtualenv. Or just run `gmail-plotly.py`
-   whenever you want to update.
+   whenever you want to update. Note that it's chatty right now and you may want
+   to pipe stdout to /dev/null.
 
-And now you have one of these:
+And now you have [one of these](https://plot.ly/~tdsmith/2). You can [embed
+them](https://plot.ly/matplotlib/embedding-plotly-graphs-in-HTML/) in other
+pages as an iframe.
 
-<iframe id="igraph" style="border: none" src="https://plot.ly/~tdsmith/2/600/400"
-    width="100%"></iframe>
+If you want to generate images locally for hotlinking, you can do that with
+`plotly.image.save_as`, probably.
